@@ -1,0 +1,25 @@
+{
+  "name": "chatchit-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Chat App Launcher - Controls Chrome via Puppeteer",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": ["mcp", "chrome", "puppeteer", "websocket", "chat", "automation"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^23.9.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
