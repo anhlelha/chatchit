@@ -18,13 +18,25 @@ function ConnectionPanel() {
     setConnectionStatus('connecting');
 
     try {
+      // Check if MCP server is available
+      if (!mcpService.isMCPServerConnected()) {
+        throw new Error('MCP server not connected. Please start the MCP server first.\n\nFor local development:\n  cd mcp-server && npm run dev\n\nFor production:\n  See DEPLOYMENT.md for setup guide');
+      }
+
       await mcpService.connect(inputUrl);
       setChatUrl(inputUrl);
       setConnectionStatus('connected');
     } catch (error) {
       console.error('Connection error:', error);
       setConnectionStatus('error');
-      alert('Failed to connect. Please try again.');
+
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+
+      if (errorMessage.includes('MCP server not connected')) {
+        alert('⚠️ MCP Server Not Running\n\n' + errorMessage);
+      } else {
+        alert('❌ Connection Failed\n\n' + errorMessage + '\n\nPlease check:\n1. MCP server is running\n2. URL is correct\n3. Browser console for details');
+      }
     } finally {
       setIsLoading(false);
     }

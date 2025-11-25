@@ -23,10 +23,11 @@ class MCPServiceImpl implements MCPService {
     reject: (reason: any) => void;
   }> = new Map();
 
-  private readonly MCP_SERVER_URL = 'ws://localhost:8080';
+  private readonly MCP_SERVER_URL = import.meta.env.VITE_MCP_SERVER_URL || 'ws://localhost:8080';
 
   constructor() {
     // Auto-connect to MCP server on init
+    console.log(`[MCP Client] Using MCP server URL: ${this.MCP_SERVER_URL}`);
     this.connectToMCPServer();
   }
 
