@@ -149,6 +149,51 @@ chatchit/
 └── README.md              # File này
 ```
 
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm hoặc yarn
+- OpenAI API Key (optional, app có mock mode để test)
+- Chrome DevTools MCP server (sẽ tích hợp sau)
+
+### Installation
+
+```bash
+# Clone repository
+git clone <your-repo-url>
+cd chatchit
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Configuration
+
+1. **Mở ứng dụng**: http://localhost:3000
+2. **Click Settings** để cấu hình:
+   - **OpenAI API Key**: Nhập key của bạn (hoặc để trống để dùng mock mode)
+   - **Chat Style**: Chọn template hoặc tùy chỉnh system prompt
+   - **Advanced Settings**: Điều chỉnh temperature, max tokens, etc.
+
+### Usage
+
+1. **Connect**: Nhập URL chat app (ví dụ: `https://chat.zalo.me`)
+2. **Choose Mode**:
+   - **Manual**: Review và approve từng message trước khi gửi
+   - **Auto**: AI tự động phản hồi
+3. **Start**: Click "Start" để bắt đầu
+4. **Monitor**: Xem messages và stats real-time
+
 ## 🚀 Quy trình Phát triển
 
 ### Phase 1: Setup (✅ Đã hoàn thành)
@@ -156,13 +201,18 @@ chatchit/
 - [x] Tạo mockup
 - [x] Thiết kế kiến trúc
 
-### Phase 2: Implementation (Chờ approval)
-- [ ] Khởi tạo React + TypeScript project
-- [ ] Setup Tailwind CSS + UI components
+### Phase 2: Implementation (✅ Đã hoàn thành)
+- [x] Khởi tạo React + TypeScript project
+- [x] Setup Vite + UI components
+- [x] Build tất cả components theo mockup
+- [x] Tích hợp OpenAI API (with mock mode)
+- [x] Implement Manual/Auto modes
+- [x] Build & test thành công
+
+### Phase 3: Integration (🔄 Đang thực hiện)
 - [ ] Tích hợp Chrome DevTools MCP
-- [ ] Tích hợp OpenAI API
-- [ ] Implement Manual/Auto modes
-- [ ] Testing & polish
+- [ ] Test với Zalo, Messenger
+- [ ] Polish & bug fixes
 
 ## 💡 Cách hoạt động
 
