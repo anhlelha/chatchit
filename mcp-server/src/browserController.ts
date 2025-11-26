@@ -14,12 +14,19 @@ export class BrowserController {
     }
 
     console.log('[Browser] Launching Chrome...');
+
+    // Use headless mode in production (Railway/Render)
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.RAILWAY_ENVIRONMENT || process.env.RENDER;
+
     this.browser = await puppeteer.launch({
-      headless: false, // Show browser UI
+      headless: isProduction ? 'new' : false, // Headless in production, show UI locally
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-blink-features=AutomationControlled',
+        '--disable-dev-shm-usage', // Important for Railway/Docker
+        '--disable-gpu',
+        '--disable-software-rasterizer',
       ],
       defaultViewport: {
         width: 1280,
