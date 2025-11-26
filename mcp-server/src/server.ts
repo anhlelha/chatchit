@@ -1,7 +1,7 @@
 import { WebSocketServer, WebSocket } from 'ws';
 import { BrowserController } from './browserController.js';
 
-const PORT = 8080;
+const PORT = parseInt(process.env.PORT || '8080');
 
 interface MCPMessage {
   id: string;
